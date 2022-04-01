@@ -9,7 +9,8 @@ let lnbM = document.querySelectorAll('.lnb_m');
 gnbToggleContain.classList.add('hide');
 // lnbMwrap.classList.add('hide');
 
-gnbToggle.addEventListener('click', ()=>{
+gnbToggle.addEventListener('click', (e)=>{
+   e.stopPropagation();
   gnbToggleContain.classList.remove('hide');
 });
 
@@ -23,7 +24,7 @@ lnbMShow(0);
 
 gnbM.forEach((item, idx) => {
   item.addEventListener('click', e => {
-    e.stopPropagation();
+
     e.preventDefault();
     lnbMShow(idx);
   })
@@ -31,12 +32,13 @@ gnbM.forEach((item, idx) => {
 
 let gnbMcontainClose = document.querySelector('.gnb_m_contain_close');
 gnbMcontainClose.addEventListener('click', event => {
+   event.stopPropagation();
   gnbToggleContain.classList.add('hide');
 })
 
-// bodyClose.addEventListener('click', event => {
-//   gnbToggleContain.classList.add('hide');
-// },true);
+bodyClose.addEventListener('click', event => {
+  gnbToggleContain.classList.add('hide');
+});
 
 // gnb슬라이드
   let gnbWrap = document.querySelectorAll('.gnb_wrap');
