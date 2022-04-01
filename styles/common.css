@@ -4,3 +4,7 @@ section {
 .gnb_toggle_contain {
   display: flex;
 }
+
+.gnb_toggle_btn, .gnb_m_contain_close {
+  font-size: 2rem;
+}

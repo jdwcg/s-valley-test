@@ -159,16 +159,17 @@ let gnbWrap = document.querySelector('.gnb_btn_wrap');
 let tabBtnWrap =document.querySelector('.tab_btn_wrap');
 let gnbToggle =document.querySelector('.gnb_toggle');
 let logo = document.querySelector('.logo');
+let navContain = document.querySelector('.nav_contain');
 if(window.pageYOffset > 0) {
   gnbWrap.classList.add('hide');
   logo.classList.add('hide');
-  // gnbToggle.classList.add('hide');
+  navContain.classList.add('hide');
   tabBtnContain.style.paddingTop = 0;
   tabBtnWrap.style.background = 'white';
 } else  {
   gnbWrap.classList.remove('hide');
   logo.classList.remove('hide');
-  // gnbToggle.classList.remove('hide');
+  navContain.classList.remove('hide');
   tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
 }
 });
