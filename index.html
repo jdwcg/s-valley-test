@@ -46,77 +46,77 @@
   <div><img src="" alt="img"></div>
 
 
-  <script>
-    let gnbWrap = document.querySelectorAll('.gnb_wrap');
-    let lnbBtnWrap = document.querySelector('.lnb_btn_wrap');
-    function lnbShow() {
-      lnbBtnWrap.style.maxHeight ?
-      lnbBtnWrap.style.maxHeight = null :
-      lnbBtnWrap.style.maxHeight = lnbBtnWrap.scrollHeight +'px';
-    }
-    for(let i=0; i<gnbWrap.length; i++) {
-      gnbWrap[i].addEventListener('mouseover', lnbShow);
-      gnbWrap[i].addEventListener('mouseout', lnbShow);
-    }
-
-    let tabBtn = document.querySelectorAll('.tab_btn');
-    let tabContent = document.querySelectorAll('.tab_content');
-    let slidingTab = document.querySelector('.slidingTab');
-    function contShow(num) {
-      tabContent.forEach((item, idx) => {
-        item.classList.add('hide');
-      });
-      tabContent[num].classList.remove('hide');
-    }
-    contShow(0);
-    function slidingTabActive(num) {
-      const newLeft = tabBtn[num].offsetLeft;
-      const newWidth = tabBtn[num].offsetWidth;
-      slidingTab.style.left = newLeft + 'px';
-      slidingTab.style.width = newWidth + 'px';
-    }
-    tabBtn.forEach((item, idx) => {
-      item.addEventListener('click', event =>{
-        event.preventDefault();
-        contShow(idx);
-        slidingTabActive(idx);
-      })
-    });
-
-    let tabBtnFirst = document.querySelector('.tab_btn');
-    let newWidth = tabBtn[0].offsetWidth;
-    let newHeight = tabBtn[0].offsetHeight;
-    slidingTab.style.width = newWidth + 'px';
-    slidingTab.style.height = newHeight + 'px';
-
-    // 상단 fixed 빈공간 채우기
-    let gnbBtnWrap =document.querySelector('.gnb_btn_wrap');
-    let tabBtnContain =document.querySelector('.tab_btn_contain');
-    let tabBtnWrap =document.querySelector('.tab_btn_wrap');
-    let tabContentWrap =document.querySelector('.tab_content_wrap');
-    let gnbBtnWrapHeigh = gnbBtnWrap.offsetHeight;
-    let tabBtnWrapHeigh = tabBtnWrap.offsetHeight;
-    tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
-    tabContentWrap.style.paddingTop = tabBtnWrapHeigh + "px";
-
-window.addEventListener('scroll', ()=>{
-  let gnbWrap = document.querySelector('.gnb_btn_wrap');
-  let tabBtnWrap =document.querySelector('.tab_btn_wrap');
-  let gnbToggle =document.querySelector('.gnb_toggle');
-  let logo = document.querySelector('.logo');
-  if(window.pageYOffset > 0) {
-    gnbWrap.classList.add('hide');
-    logo.classList.add('hide');
-    gnbToggle.classList.add('hide');
-    tabBtnContain.style.paddingTop = 0;
-    tabBtnWrap.style.background = 'white';
-  } else  {
-    gnbWrap.classList.remove('hide');
-    logo.classList.remove('hide');
-    gnbToggle.classList.remove('hide');
-    tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
+<script>
+  let gnbWrap = document.querySelectorAll('.gnb_wrap');
+  let lnbBtnWrap = document.querySelector('.lnb_btn_wrap');
+  function lnbShow() {
+    lnbBtnWrap.style.maxHeight ?
+    lnbBtnWrap.style.maxHeight = null :
+    lnbBtnWrap.style.maxHeight = lnbBtnWrap.scrollHeight +'px';
   }
+  for(let i=0; i<gnbWrap.length; i++) {
+    gnbWrap[i].addEventListener('mouseover', lnbShow);
+    gnbWrap[i].addEventListener('mouseout', lnbShow);
+  }
+
+  let tabBtn = document.querySelectorAll('.tab_btn');
+  let tabContent = document.querySelectorAll('.tab_content');
+  let slidingTab = document.querySelector('.slidingTab');
+  function contShow(num) {
+    tabContent.forEach((item, idx) => {
+      item.classList.add('hide');
+    });
+    tabContent[num].classList.remove('hide');
+  }
+  contShow(0);
+  function slidingTabActive(num) {
+    const newLeft = tabBtn[num].offsetLeft;
+    const newWidth = tabBtn[num].offsetWidth;
+    slidingTab.style.left = newLeft + 'px';
+    slidingTab.style.width = newWidth + 'px';
+  }
+  tabBtn.forEach((item, idx) => {
+    item.addEventListener('click', event => {
+      event.preventDefault();
+      contShow(idx);
+      slidingTabActive(idx);
+    })
+  });
+
+  let tabBtnFirst = document.querySelector('.tab_btn');
+  let newWidth = tabBtn[0].offsetWidth;
+  let newHeight = tabBtn[0].offsetHeight;
+  slidingTab.style.width = newWidth + 'px';
+  slidingTab.style.height = newHeight + 'px';
+
+  // 상단 fixed 빈공간 채우기
+  let gnbBtnWrap =document.querySelector('.gnb_btn_wrap');
+  let tabBtnContain =document.querySelector('.tab_btn_contain');
+  let tabBtnWrap =document.querySelector('.tab_btn_wrap');
+  let tabContentWrap =document.querySelector('.tab_content_wrap');
+  let gnbBtnWrapHeigh = gnbBtnWrap.offsetHeight;
+  let tabBtnWrapHeigh = tabBtnWrap.offsetHeight;
+  tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
+  tabContentWrap.style.paddingTop = tabBtnWrapHeigh + "px";
+
+window.addEventListener('scroll', event => {
+let gnbWrap = document.querySelector('.gnb_btn_wrap');
+let tabBtnWrap =document.querySelector('.tab_btn_wrap');
+let gnbToggle =document.querySelector('.gnb_toggle');
+let logo = document.querySelector('.logo');
+if(window.pageYOffset > 0) {
+  gnbWrap.classList.add('hide');
+  logo.classList.add('hide');
+  gnbToggle.classList.add('hide');
+  tabBtnContain.style.paddingTop = 0;
+  tabBtnWrap.style.background = 'white';
+} else  {
+  gnbWrap.classList.remove('hide');
+  logo.classList.remove('hide');
+  gnbToggle.classList.remove('hide');
+  tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
+}
 });
-  </script>
+</script>
 </body>
 </html>
