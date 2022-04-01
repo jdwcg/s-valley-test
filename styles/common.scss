@@ -10,12 +10,12 @@ html, body {height: 100%;}
    position: fixed; display: none;
    left: 0; top: 0; width: 100%; height: 56px;
    background: white;
+
 }
 .logo {padding: .5rem 1rem;}
 .nav_contain {
   position: fixed;
   z-index: 5;
-  // transition: all .3s ease;
   padding: 4px 0;
   display: flex; justify-content: space-between;
   width:100%;
@@ -31,8 +31,7 @@ html, body {height: 100%;}
 }
 .slidingTab {padding: 10px 1rem;}
 .tab_btn_wrap {
-   transition: all .3s ease;
-   .tab_btn {padding: 1rem 1.5rem; transition: all .3s ease;}
+   .tab_btn {padding: 1rem 1.5rem; }
    position: fixed; z-index: 5;
    display: flex; align-items: center;
    // width: 100%;
@@ -40,7 +39,10 @@ html, body {height: 100%;}
 .tab_content {
 
 }
-.slidingTab {position: absolute; z-index: -1; left:0; height: 10px; background: tan; transition: all .3s ease;}
+.slidingTab {
+   position: absolute; z-index: -1; left:0; height: 10px; background: tan;
+   transition: all .3s ease;
+}
 
 .gnb_btn, .lnb_btn {
    padding: 1rem;
@@ -54,7 +56,7 @@ html, body {height: 100%;}
       a {padding: 0 0 1rem;}
    }
    background: white;
-   max-height: 0; overflow:hidden; transition: all .3s ease;
+   max-height: 0; overflow:hidden;
    position: relative;
 }
 .hide {display: none;}
