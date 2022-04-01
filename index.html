@@ -5,41 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ex</title>
-  <style>
-
-    .body {background: #f8f8f8; margin: 0;}
-    .gnb_btn_wrap, .lnb_btn_wrap, .tab_btn_wrap {display: flex;}
-
-    .nav_contain {
-      position: fixed;
-      z-index: 2;
-    }
-    .tab_btn_wrap {
-      position: fixed;
-    }
-    .slidingTab {position: absolute; z-index: -1; left:0; height: 10px; background: tan; transition: all .3s ease;}
-
-    .lnb_btn_wrap {
-      background: white;
-    }
-    .gnb_btn, .lnb_btn, .tab_btn {padding: .5rem;}
-    .lnb_btn_wrap {border: 1px solid tan; max-height: 0; overflow:hidden; transition: all .3s ease;}
-    .hide {display: none;}
-    .show {display: block;}
-  </style>
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/common.css">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body class="body">
 
-  <!-- Lorem ipsum dolor sit amet. -->
   <nav class="nav_contain">
-    <div class="gnb_btn_wrap">
-      <div class="gnb_btn">ipsum</div>
-      <div class="gnb_btn">dolor</div>
+    <div class="logo"><a href="index.html">logo</a></div>
+    <div class="gnb_wrap">
+      <div class="gnb_btn_wrap">
+        <div class="gnb_btn">ipsum</div>
+        <div class="gnb_btn">dolor</div>
+      </div>
+      <div class="lnb_btn_wrap">
+        <div class="lnb_btn">sit</div>
+        <div class="lnb_btn">amet</div>
+        <!-- <div class="lnb_btn">amet</div> -->
+      </div>
     </div>
-    <div class="lnb_btn_wrap">
-      <div class="lnb_btn">sit</div>
-      <div class="lnb_btn">amet</div>
-    </div>
+    <div class="gnb_toggle"><i class="bi bi-list"></i></div>
   </nav>
   <section class="tab_btn_contain">
     <div class="tab_btn_wrap">
@@ -60,16 +49,16 @@
 
   <script>
     // let lnbBtn = document.querySelectorAll('.lnb_btn');
-    let navContain = document.querySelectorAll('.nav_contain');
+    let gnbWrap = document.querySelectorAll('.gnb_wrap');
     let lnbBtnWrap = document.querySelector('.lnb_btn_wrap');
     function lnbShow() {
       lnbBtnWrap.style.maxHeight ?
       lnbBtnWrap.style.maxHeight = null :
       lnbBtnWrap.style.maxHeight = lnbBtnWrap.scrollHeight +'px';
     }
-    for(let i=0; i<navContain.length; i++) {
-      navContain[i].addEventListener('mouseover', lnbShow);
-      navContain[i].addEventListener('mouseout', lnbShow);
+    for(let i=0; i<gnbWrap.length; i++) {
+      gnbWrap[i].addEventListener('mouseover', lnbShow);
+      gnbWrap[i].addEventListener('mouseout', lnbShow);
     }
 
     let tabBtn = document.querySelectorAll('.tab_btn');
@@ -102,8 +91,6 @@
     slidingTab.style.width = newWidth + 'px';
     slidingTab.style.height = newHeight + 'px';
 
-    // console.log(tabBtnFirst.style.background = "red")
-
     // 상단 fixed 빈공간 채우기
     let gnbBtnWrap =document.querySelector('.gnb_btn_wrap');
     let tabBtnContain =document.querySelector('.tab_btn_contain');
@@ -114,17 +101,21 @@
     tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
     tabContentWrap.style.paddingTop = tabBtnWrapHeigh + "px";
 
-
 window.addEventListener('scroll', ()=>{
-  let navContain = document.querySelector('.nav_contain');
+  let gnbWrap = document.querySelector('.gnb_btn_wrap');
   let tabBtnWrap =document.querySelector('.tab_btn_wrap');
+  let gnbToggle =document.querySelector('.gnb_toggle');
+  let logo = document.querySelector('.logo');
   if(window.pageYOffset > 50) {
-    navContain.classList.add('hide');
+    gnbWrap.classList.add('hide');
+    logo.classList.add('hide');
+    gnbToggle.classList.add('hide');
     tabBtnContain.style.paddingTop = 0;
     tabBtnWrap.style.background = 'white';
   } else  {
-    console.log('test');
-    navContain.classList.remove('hide');
+    gnbWrap.classList.remove('hide');
+    logo.classList.remove('hide');
+    gnbToggle.classList.remove('hide');
     tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
   }
 })
