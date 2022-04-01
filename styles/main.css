@@ -1,4 +1,5 @@
-.body {background: #f8f8f8; margin: 0;}
+.body {background: #f8f8f8; margin: 0; border: 1px solid tan;}
+html, body {height: 100%;}
 .gnb_btn_wrap, .lnb_btn_wrap, .tab_btn_wrap {display: flex;}
 
 .nav_contain {

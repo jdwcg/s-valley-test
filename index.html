@@ -27,7 +27,7 @@
         <div class="lnb_btn">amet</div>
       </div>
     </div>
-    <div class="gnb_toggle"><i class="bi bi-list"></i></div>
+    <div class="gnb_toggle_btn"><i class="bi bi-list"></i></div>
   </nav>
   <section class="tab_btn_contain">
     <div class="tab_btn_wrap">
@@ -43,10 +43,65 @@
     </div>
   </section>
 
+
   <div><img src="" alt="img"></div>
 
+<nav class="gnb_toggle_contain">
+  <span class="gnb_m_contain_close"><i class="bi bi-x-lg"></i></span>
+  <div class="gnb_m_contain">
+    <div class="gnb_m_wrap">
+      <div class="gnb_m"><a href="">menu1</a></div>
+      <div class="gnb_m">menu2</div>
+    </div>
+    <div class="lnb_m_wrap">
+      <div class="lnb_m">inner1</div>
+      <div class="lnb_m">inner2</div>
+    </div>
+  </div>
+</nav>
 
 <script>
+// 모바일메뉴
+let bodyClose = document.querySelector('.body');
+let gnbToggle = document.querySelector('.gnb_toggle_btn');
+let gnbToggleContain = document.querySelector('.gnb_toggle_contain');
+let lnbMwrap = document.querySelector('.lnb_m_wrap');
+let gnbM = document.querySelectorAll('.gnb_m');
+let lnbM = document.querySelectorAll('.lnb_m');
+
+gnbToggleContain.classList.add('hide');
+// lnbMwrap.classList.add('hide');
+
+gnbToggle.addEventListener('click', ()=>{
+  gnbToggleContain.classList.remove('hide');
+});
+
+function lnbMShow(num) {
+  lnbM.forEach((elem) => {
+    elem.classList.add('hide');
+  });
+  lnbM[num].classList.remove('hide');
+}
+lnbMShow(0);
+
+gnbM.forEach((item, idx) => {
+  item.addEventListener('click', e => {
+    e.stopPropagation();
+    e.preventDefault();
+    lnbMShow(idx);
+  })
+});
+
+let gnbMcontainClose = document.querySelector('.gnb_m_contain_close');
+gnbMcontainClose.addEventListener('click', event => {
+  gnbToggleContain.classList.add('hide');
+})
+
+// bodyClose.addEventListener('click', event => {
+//   gnbToggleContain.classList.add('hide');
+// },true);
+
+// gnb슬라이드
   let gnbWrap = document.querySelectorAll('.gnb_wrap');
   let lnbBtnWrap = document.querySelector('.lnb_btn_wrap');
   function lnbShow() {
@@ -58,7 +113,7 @@
     gnbWrap[i].addEventListener('mouseover', lnbShow);
     gnbWrap[i].addEventListener('mouseout', lnbShow);
   }
-
+// 탭메뉴
   let tabBtn = document.querySelectorAll('.tab_btn');
   let tabContent = document.querySelectorAll('.tab_content');
   let slidingTab = document.querySelector('.slidingTab');
@@ -107,16 +162,18 @@ let logo = document.querySelector('.logo');
 if(window.pageYOffset > 0) {
   gnbWrap.classList.add('hide');
   logo.classList.add('hide');
-  gnbToggle.classList.add('hide');
+  // gnbToggle.classList.add('hide');
   tabBtnContain.style.paddingTop = 0;
   tabBtnWrap.style.background = 'white';
 } else  {
   gnbWrap.classList.remove('hide');
   logo.classList.remove('hide');
-  gnbToggle.classList.remove('hide');
+  // gnbToggle.classList.remove('hide');
   tabBtnContain.style.paddingTop = gnbBtnWrapHeigh + "px";
 }
 });
+
+
 </script>
 </body>
 </html>
